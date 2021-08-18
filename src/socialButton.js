@@ -23,11 +23,9 @@ function SocialButton(props){
     return (
         <a className="logo-anchor" href={getSocialUrl(props.social)}>
             <div>
-                <span>
                     <svg >
                         <path d={getSocialLogoPath(props.social)}></path>
                     </svg>
-                </span>
             </div>
         </a>
     )
