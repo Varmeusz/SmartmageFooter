@@ -76,10 +76,9 @@ function Footer() {
         <Accordion name={el} links={FooterInfo[el]}/>
     })
 
-    const [OpenedInfo, setOpenedInfo] = useState(false);
     return (
     <footer className="wokularach-footer">
-        <div className="social-links">
+        <div className="social-links footer-item-top">
             <h3>Zostań z nami</h3>
             <div className="logo-container">
                 <SocialButton social="Facebook"/>
@@ -96,15 +95,12 @@ function Footer() {
                 <p className="contact-p-big">kontakt@wokularach.pl</p>
             </a>
         </div>
-        <div className="footer-item">
+        <div className="footer-item footer-item-middle">
             {Object.keys(FooterInfo).map((el, idx) => (
-                idx<3 ? <Accordion name={el} links={FooterInfo[el]}/> : false
-            ))}
-                
-            
-                
+                idx<=3 ? <Accordion name={el} links={FooterInfo[el]}/> : false
+            ))} 
         </div>
-        <div className="footer-item">
+        <div className="footer-item footer-item-bottom">
             {Object.keys(FooterInfo).map((el, idx) => (
                 idx>3 ? <Accordion name={el} links={FooterInfo[el]}/> : false
             ))}
