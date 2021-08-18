@@ -21,7 +21,9 @@ function Accordion(props){
               <div className="accordion-title footer-info" onClick={()=>setIsActive(!isActive)}>
                 <div>{name}<span className="plus-sign">{plusSign}</span></div>
               </div>
-              {isActive && <ul className="accordion-content footer-info-links">{links.map((el) => (<li>{el}</li>))}</ul>}
+              <div className="accordion-content" aria-expanded={!isActive}>
+                {<ul className="footer-info-links">{links.map((el) => (<li>{el}</li>))}</ul>}
+              </div>
             </div>
           </div>
         </React.Fragment>
