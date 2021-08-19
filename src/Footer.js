@@ -1,9 +1,9 @@
 // import logo from './logo.svg';
-import SocialButton from './socialButton';
 import Accordion from './Accordion';
 import './Footer.scss';
 import React from 'react';
-
+import styled from 'styled-components';
+import SocialLinks from './SocialLinks';
 
 function Footer() {
   
@@ -47,26 +47,23 @@ function Footer() {
             "Sposob dostawy"
         ]
     };
+    
+    const StyledFooter = styled.footer`
+
+    `
+    
+    const StyledSocialLinks = styled(SocialLinks)`
+    
+    `
+
 
     return (
     <footer className="wokularach-footer">
-        <div className="social-links footer-item-top">
-            <h3>Zostań z nami</h3>
-            <div className="logo-container">
-                <SocialButton social="Facebook"/>
-                <SocialButton social="Instagram"/>
-                <SocialButton social="Youtube"/>
-            </div>
-            <h3>Kontakt</h3>
-            <a href="#">
-                <p className="contact-p">tel.</p>
-                <p className="contact-p-big">22 113 44 48</p>
-            </a>
-            <a href="#">
-                <p className="contact-p">email:</p>
-                <p className="contact-p-big">kontakt@wokularach.pl</p>
-            </a>
-        </div>
+
+        {/* <div className="social-links footer-item-top">
+            
+        </div> */}
+        <StyledSocialLinks/>
         <div className="footer-item footer-item-middle">
             {Object.keys(FooterInfo).map((el, idx) => (
                 idx<=3 ? <Accordion name={el} links={FooterInfo[el]}/> : false
