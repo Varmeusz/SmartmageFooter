@@ -1,6 +1,7 @@
 // import logo from './logo.svg';
 import Accordion from './Accordion';
-import './Footer.scss';
+// import './Footer.scss';
+import './typography.css';
 import React from 'react';
 import styled from 'styled-components';
 import SocialLinks from './SocialLinks';
@@ -49,33 +50,82 @@ function Footer() {
     };
     
     const StyledFooter = styled.footer`
+        background-color: black;
+        color: white;
+        padding: 30px 40px;
+        @media only screen and (max-width: 768px){
+            padding: 30px 40px;
+            display: grid;
+            grid-template-areas: 
+            "top"
+            "middle"
+            "bottom"
+            ;
 
+        }
+        @media screen and (min-width: 768px) and (max-width: 1024px) {
+            
+            display: grid;
+            grid-template-areas: 
+            "middle top"
+            "bottom top"
+            
+            ;
+        }
+        @media screen and (min-width: 1024px) {
+            display: grid;
+            grid-template-areas: 
+            "middle bottom top";
+        }
     `
     
     const StyledSocialLinks = styled(SocialLinks)`
+        grid-area: top;
+        
+    `
+    const FooterItem = styled.div`
+
+        @media screen and (min-width: 768px) and (max-width: 1024px) {
+
+        }
+        @media screen and (min-width: 1024px) {
+            margin-left: 138px;
+
+        }
+
+
+    `
+    const FooterItemMiddle = styled(FooterItem)`
+        grid-area: middle;
+    
+    `
+    const FooterItemBottom = styled(FooterItem)`
+        grid-area: bottom;
     
     `
 
-
     return (
-    <footer className="wokularach-footer">
+    <StyledFooter>
 
         {/* <div className="social-links footer-item-top">
             
         </div> */}
-        <StyledSocialLinks/>
-        <div className="footer-item footer-item-middle">
+        <StyledSocialLinks></StyledSocialLinks>
+        
+        <FooterItemMiddle className="footer-item footer-item-middle">
             {Object.keys(FooterInfo).map((el, idx) => (
-                idx<=3 ? <Accordion name={el} links={FooterInfo[el]}/> : false
+                idx<=3 ? 
+                <Accordion name={el} links={FooterInfo[el]}/> : 
+                false
             ))} 
-        </div>
-        <div className="footer-item footer-item-bottom">
+        </FooterItemMiddle>
+        <FooterItemBottom className="footer-item footer-item-bottom">
             {Object.keys(FooterInfo).map((el, idx) => (
                 idx>3 ? <Accordion name={el} links={FooterInfo[el]}/> : false
             ))}
-        </div>
+        </FooterItemBottom>
 
-    </footer>
+    </StyledFooter>
   );
 }
 

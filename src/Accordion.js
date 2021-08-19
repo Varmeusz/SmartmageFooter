@@ -1,4 +1,6 @@
 import React, { useState } from 'react';
+import styled from 'styled-components';
+
 function hashCode(string) {
   var hash = 0, i, chr;
   if (string.length === 0) return hash;
@@ -9,29 +11,105 @@ function hashCode(string) {
   }
   return hash;
 };
-
-function Accordion(props){
-    const plusSign = <svg width="17" height="16" fill="none" xmlns="http://www.w3.org/2000/svg">
+const plusSignSvg = <svg width="17" height="16" fill="none" xmlns="http://www.w3.org/2000/svg">
     <path fillRule="evenodd" clipRule="evenodd" d="M12.995 4.495a.7.7 0 1 0-.99-.99L8.5 7.01 4.995 3.505a.7.7 0 0 0-.99.99L7.51 8l-3.505 3.505a.7.7 0 1 0 .99.99L8.5 8.99l3.505 3.505a.7.7 0 1 0 .99-.99L9.49 8l3.505-3.505z" fill="#fff"/>
 </svg>;
+
+    const AccordionContainer = styled.div`
+
+    `
+
+
+    const PlusSign = styled.span`
+      position: absolute;
+      right: 0;
+      transform: rotate(-135deg);
+      transition: 0.3s;
+
+    `
+
+    const AccordionTitleContainer = styled.div`
+      font-family: "Rubik";
+      font-size: 12px;
+      font-weight: 500;
+      font-stretch: normal;
+      font-style: normal;
+      line-height: normal;
+      letter-spacing: normal;
+      text-align: left;
+      color: #fff;
+      padding: 16px 0;
+      position: relative;
+      cursor: pointer;
+      &:after {
+          content: "";
+          position: absolute;
+          bottom: 0px;
+          left: 0px;
+          width: 100%;
+          height: 1px;
+          background-color: rgb(79, 79, 79);
+          transform: scaleX(1);
+          will-change: transform;
+          transition: transform 600ms cubic-bezier(0.5, 0, 0, 0.5) 0ms, background-color 0.2s linear 0s;
+          transform-origin: left center;
+      }
+      &[aria-expanded="true"] {
+        ${PlusSign}{
+          transform: rotate(-90deg);
+          transition: .3s;
+        }
+      }
+    
+    `
+    const AccordionContentContainer = styled.div`
+      overflow: hidden;
+      max-height: 1000px;
+      transition:  1s ease-in-out;
+      &[aria-expanded="true"] {
+        max-height: 0px;
+        transition:  1s cubic-bezier(0, 1, 0, 1);
+        
+      }
+    `;
+
+    const LinksList = styled.ul`
+        font-family: Rubik;
+        font-size: 12px;
+        list-style: none;
+        padding-left: 0px;
+      @media screen and (max-width: 768px) {
+        font-family: Rubik;
+        font-size: 12px;
+        font-weight: normal;
+        font-stretch: normal;
+        font-style: normal;
+        line-height: normal;
+        letter-spacing: normal;
+        list-style: none;
+        padding-left: 0px;
+        li {
+            padding-bottom: 16px;
+        }
+      }
+      `
+function Accordion(props){
+    
+
 
     const name = props.name;
     const links = props.links;
     const [isActive, setIsActive] = useState(false);
 
     return (
-        <React.Fragment>
-          <div className="accordion">
-            <div className="accordion-item">
-              <div className="accordion-title footer-info" aria-expanded={isActive} onClick={()=>setIsActive(!isActive)}>
-                <div>{name}<span className="plus-sign">{plusSign}</span></div>
-              </div>
-              <div className="accordion-content" aria-expanded={!isActive}>
-                {<ul className="footer-info-links">{links.map((el) => (<li key={hashCode(el).toString()}>{el}</li>))}</ul>}
-              </div>
-            </div>
-          </div>
-        </React.Fragment>
+      <AccordionContainer>
+          <AccordionTitleContainer aria-expanded={isActive} onClick={()=>setIsActive(!isActive)}>
+            <>{name}<PlusSign>{plusSignSvg}</PlusSign></>
+          </AccordionTitleContainer>
+          <AccordionContentContainer aria-expanded={!isActive}>
+            <LinksList>{links.map((el) => (<li key={hashCode(el).toString()}>{el}</li>))}</LinksList>
+          </AccordionContentContainer>
+      </AccordionContainer>
         
     );
 }

@@ -6,13 +6,13 @@ function SocialLinks(){
     
     const SocialLinksContainer = styled.div`
         padding-bottom: calc(55px - 18px);
-        @media screen and (min-width: 768px) and (max-width: 1024px - 1){
+        @media screen and (min-width: 768px) and (max-width: 1024px){
             margin-left: 137px;
 
         }
         @media screen and (min-width: 1024px) {
             margin-left: 138px;
-}
+        }
 
     `
     const LogoContainer = styled.div`
