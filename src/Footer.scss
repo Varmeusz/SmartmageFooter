@@ -22,16 +22,19 @@
     justify-content: flex-start;
     -webkit-box-align: flex-start;
     align-items: center;
-    cursor: pointer;
+    // cursor: pointer;
     position: relative;
     svg {
         width: 24px;
         height: 24px;
         fill: #fff;
         // padding: 2px;
-        padding-right: 26px;
+        // padding-right: 26px;
     
     }
+}
+.logo-container-one {
+    margin-right: 26px;
 }
 .social-links {
     
@@ -69,6 +72,10 @@
         margin-bottom: 18px;
     }
     padding-bottom: calc(55px - 18px);
+    a {
+        color: #fff;
+        text-decoration: none;
+    }
 
 }
 @keyframes hideAnim {
@@ -80,6 +87,17 @@
     }
 }
 .footer-item {
+    .footer-info:hover  {
+        
+        span.plus-sign svg {
+            // transform: rotate(-135deg);
+            transition: .3s;
+            fill: orange;
+        }
+        .plus-sign svg {
+            fill: orange;
+        }
+    }
     .footer-info{
         font-family: "Rubik";
         font-size: 12px;
@@ -99,10 +117,13 @@
             right: 0;
             transform: rotate(-135deg);
             transition: 0.3s;
-            &:active, &:focus{
-                transform:rotate(0deg);
+            
+        }
+        &[aria-expanded="true"]{
+            .plus-sign{
+                transform: rotate(-90deg);
                 transition: 0.3s;
-            }
+            }   
         }
         &:after {
             content: "";
@@ -129,6 +150,7 @@
         // letter-spacing: normal;
         list-style: none;
         padding-left: 0px;
+        
         // li {
         //     padding-bottom: 16px;
         // }
@@ -165,7 +187,7 @@
         justify-content: flex-start;
         -webkit-box-align: flex-start;
         align-items: center;
-        cursor: pointer;
+        // cursor: pointer;
         position: relative;
         svg {
             width: 24px;
@@ -300,6 +322,9 @@
         
         ;
     }
+    .social-links {
+        margin-left: 137px;
+    }
 }
 
 @media screen and (min-width: 1024px) {
@@ -308,5 +333,11 @@
         display: grid;
         grid-template-areas: 
         "middle bottom top";
+    }
+    .social-links {
+        margin-left: 138px;
+    }
+    .footer-item {
+        margin-left: 138px;
     }
 }

@@ -2,27 +2,11 @@
 import SocialButton from './socialButton';
 import Accordion from './Accordion';
 import './Footer.scss';
-import React, {useState} from 'react';
+import React from 'react';
 
-
-
-function getFooterInfo(){
-    return [
-        "Marki Okularów",
-        "Rodzaje Okularów",
-        "Typ Okularów",
-        "Informacje",
-        "Jak zamawiać",
-        "Zwroty i reklamacja",
-        "Warunki zakupów"
-    ]
-}
 
 function Footer() {
-    const plusSign = <svg width="17" height="16" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <path fill-rule="evenodd" clip-rule="evenodd" d="M12.995 4.495a.7.7 0 1 0-.99-.99L8.5 7.01 4.995 3.505a.7.7 0 0 0-.99.99L7.51 8l-3.505 3.505a.7.7 0 1 0 .99.99L8.5 8.99l3.505 3.505a.7.7 0 1 0 .99-.99L9.49 8l3.505-3.505z" fill="#fff"/>
-</svg>;
-
+  
     const FooterInfo = {
         "Marki Okularów" : [
             "Okulary Ray-Ban®",
@@ -63,18 +47,6 @@ function Footer() {
             "Sposob dostawy"
         ]
     };
-    const footerInfoDivs = Object.keys(FooterInfo).map((el) =>  (
-        <>
-        <div className="footer-info">{el}</div>
-        {FooterInfo[el].map(link => (
-            <div className="footer-info-links">{link}</div>
-
-        ))}
-        </>
-    ))
-    const Accordions = Object.keys(FooterInfo).map((el) => {
-        <Accordion name={el} links={FooterInfo[el]}/>
-    })
 
     return (
     <footer className="wokularach-footer">
@@ -86,11 +58,11 @@ function Footer() {
                 <SocialButton social="Youtube"/>
             </div>
             <h3>Kontakt</h3>
-            <a>
+            <a href="#">
                 <p className="contact-p">tel.</p>
                 <p className="contact-p-big">22 113 44 48</p>
             </a>
-            <a>
+            <a href="#">
                 <p className="contact-p">email:</p>
                 <p className="contact-p-big">kontakt@wokularach.pl</p>
             </a>
