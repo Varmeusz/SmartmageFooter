@@ -9,15 +9,15 @@ import SocialLinks from './SocialLinks';
 function Footer() {
   
     const FooterInfo = {
-        "Marki Okularów" : [
+        "Marki okularów" : [
             "Okulary Ray-Ban®",
             "Okulary Dior"
         ],
-        "Rodzaje Okularów": [
+        "Rodzaj okularów": [
             "Okulary damskie",
             "Okulary męskie"
         ],
-        "Typ Okularów": [
+        "Typ okularów": [
             "Okulary pełne",
             "Okulary żyłka",
             "Okulary patentki"
@@ -52,8 +52,7 @@ function Footer() {
     const StyledFooter = styled.footer`
         background-color: black;
         color: white;
-        padding: 30px 40px;
-        @media only screen and (max-width: 768px){
+        @media only screen and (max-width: calc(768px - 1px)){
             padding: 30px 40px;
             display: grid;
             grid-template-areas: 
@@ -61,29 +60,34 @@ function Footer() {
             "middle"
             "bottom"
             ;
+            padding: 30px 40px;
+
 
         }
-        @media screen and (min-width: 768px) and (max-width: 1024px) {
-            
+        @media screen and (min-width: 768px) and (max-width: 1439px) {
+            padding: 30px 91px;
             display: grid;
             grid-template-areas: 
             "middle top"
             "bottom top"
             ;
         }
-        @media screen and (min-width: 1024px) {
+        @media screen and (min-width: 1440px) {
+            padding: 30px 135px;
             display: grid;
+            grid-template-columns: 348px 348px auto;
+            grid-column-gap: 138px;
             grid-template-areas: 
             "middle bottom top";
         }
     `
     const FooterItem = styled.div`
 
-        @media screen and (min-width: 768px) and (max-width: 1024px) {
-
+        @media screen and (min-width: 768px) and (max-width: 1439px) {
+            width: 251px;
         }
-        @media screen and (min-width: 1024px) {
-            margin-left: 138px;
+        @media screen and (min-width: 1440px) {
+            width: 348px;
 
         }
 
@@ -91,10 +95,16 @@ function Footer() {
     `
     const FooterItemMiddle = styled(FooterItem)`
         grid-area: middle;
+        
+        @media screen and (min-width: 1024px) {
+        }
     
     `
     const FooterItemBottom = styled(FooterItem)`
         grid-area: bottom;
+        
+        @media screen and (min-width: 1024px) {
+        }
     
     `
 
@@ -106,14 +116,14 @@ function Footer() {
         </div> */}
         <SocialLinks></SocialLinks>
         
-        <FooterItemMiddle className="footer-item footer-item-middle">
+        <FooterItemMiddle>
             {Object.keys(FooterInfo).map((el, idx) => (
                 idx<=3 ? 
                 <Accordion name={el} links={FooterInfo[el]}/> : 
                 false
             ))} 
         </FooterItemMiddle>
-        <FooterItemBottom className="footer-item footer-item-bottom">
+        <FooterItemBottom >
             {Object.keys(FooterInfo).map((el, idx) => (
                 idx>3 ? 
                 <Accordion name={el} links={FooterInfo[el]}/> : 

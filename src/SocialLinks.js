@@ -8,12 +8,11 @@ function SocialLinks(){
         padding-bottom: calc(55px - 18px);
         grid-area: top;
 
-        @media screen and (min-width: 768px) and (max-width: 1024px){
+        @media screen and (min-width: 768px) and (max-width: 1439px){
             margin-left: 137px;
 
         }
-        @media screen and (min-width: 1024px) {
-            margin-left: 138px;
+        @media screen and (min-width: 1440px) {
         }
 
     `
@@ -27,7 +26,7 @@ function SocialLinks(){
         position: relative;
 
     `
-    const StyledHeader3 = styled.h3`
+    const StyledHeader3 = styled.div`
         flex-grow: 0;
         margin: 0 0 19px;
         font-family: "Rubik";
@@ -49,6 +48,8 @@ function SocialLinks(){
         font-family: Rubik;
         margin: 0 auto;
         font-size: 12px;
+        margin-bottom: 2px;
+        margin-left: 2px;
         font-weight: normal;
         font-stretch: normal;
         font-style: normal;

@@ -11,20 +11,19 @@ function hashCode(string) {
   }
   return hash;
 };
+
 const plusSignSvg = <svg width="17" height="16" fill="none" xmlns="http://www.w3.org/2000/svg">
     <path fillRule="evenodd" clipRule="evenodd" d="M12.995 4.495a.7.7 0 1 0-.99-.99L8.5 7.01 4.995 3.505a.7.7 0 0 0-.99.99L7.51 8l-3.505 3.505a.7.7 0 1 0 .99.99L8.5 8.99l3.505 3.505a.7.7 0 1 0 .99-.99L9.49 8l3.505-3.505z" fill="#fff"/>
 </svg>;
 
-    const AccordionContainer = styled.div`
-    `
+    const AccordionContainer = styled.div``
 
 
     const PlusSign = styled.span`
       position: absolute;
-      right: 0;
-      transform: rotate(-135deg);
+      right: 6.9px;
+      transform: rotate(-135deg) scaleX(90%) scaleY(90%);
       transition: 0.3s;
-
     `
 
     const AccordionTitleContainer = styled.div`
@@ -58,6 +57,8 @@ const plusSignSvg = <svg width="17" height="16" fill="none" xmlns="http://www.w3
         ${PlusSign}{
           transform: rotate(-90deg);
           transition: .3s;
+
+
         }
         &:after {
           content: "";
@@ -79,6 +80,7 @@ const plusSignSvg = <svg width="17" height="16" fill="none" xmlns="http://www.w3
       overflow: hidden;
       max-height: 1000px;
       transition: max-height 1s ease-in-out;
+      padding-top:0px;
       &[aria-expanded="true"] {
         max-height: 0px;
         transition: max-height 1s cubic-bezier(0, 1, 0, 1);
@@ -109,7 +111,6 @@ const plusSignSvg = <svg width="17" height="16" fill="none" xmlns="http://www.w3
       height: 1px;
       background-color: rgb(79, 79, 79);
       will-change: transform;
-      ${'' /* transition: visibility 1000ms cubic-bezier(0.5, 0, 0, 0.5) 0ms, background-color 0.2s linear 0s; */}
       transition: .3s;
       transform-origin: left center;
     }
@@ -120,6 +121,7 @@ const plusSignSvg = <svg width="17" height="16" fill="none" xmlns="http://www.w3
         font-size: 12px;
         list-style: none;
         padding-left: 0px;
+        margin-top: 0px;
         li {
             padding-bottom: 16px;
         }

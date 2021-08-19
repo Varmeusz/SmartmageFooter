@@ -23,19 +23,13 @@ function getSocialLogoPath(name) {
 }
 
 const LogoContainer = styled.div`
-    ${'' /* display: flex;
-    padding-bottom: 55px;
-    justify-content: flex-start;
-    -webkit-box-pack: flex-start;
-    -webkit-box-align: flex-start;
-    align-items: center;
-    ${"" /* cursor: pointer; */}
     position: relative;
+    height: 24px;
     svg {
         width: 24px;
         height: 24px;
         fill: #fff;
-    } */}
+    }
     margin-right: 26px;
 `;
 const LogoAnchor = styled.a`
