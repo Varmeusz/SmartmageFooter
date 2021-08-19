@@ -6,6 +6,8 @@ function SocialLinks(){
     
     const SocialLinksContainer = styled.div`
         padding-bottom: calc(55px - 18px);
+        grid-area: top;
+
         @media screen and (min-width: 768px) and (max-width: 1024px){
             margin-left: 137px;
 

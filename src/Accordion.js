@@ -16,7 +16,6 @@ const plusSignSvg = <svg width="17" height="16" fill="none" xmlns="http://www.w3
 </svg>;
 
     const AccordionContainer = styled.div`
-
     `
 
 
@@ -41,7 +40,7 @@ const plusSignSvg = <svg width="17" height="16" fill="none" xmlns="http://www.w3
       padding: 16px 0;
       position: relative;
       cursor: pointer;
-      &:after {
+        &:after {
           content: "";
           position: absolute;
           bottom: 0px;
@@ -54,23 +53,66 @@ const plusSignSvg = <svg width="17" height="16" fill="none" xmlns="http://www.w3
           transition: transform 600ms cubic-bezier(0.5, 0, 0, 0.5) 0ms, background-color 0.2s linear 0s;
           transform-origin: left center;
       }
+      
       &[aria-expanded="true"] {
         ${PlusSign}{
           transform: rotate(-90deg);
           transition: .3s;
         }
+        &:after {
+          content: "";
+          position: absolute;
+          bottom: 0px;
+          left: 0px;
+          width: 100%;
+          height: 1px;
+          background-color: rgb(79, 79, 79);
+          transform: scaleX(0);
+          will-change: transform;
+          transition: transform 300ms cubic-bezier(0.5, 0, 0, 0.5) 0ms, background-color 0.2s linear 0s;
+          transform-origin: left center;
+      }
       }
     
     `
     const AccordionContentContainer = styled.div`
       overflow: hidden;
       max-height: 1000px;
-      transition:  1s ease-in-out;
+      transition: max-height 1s ease-in-out;
       &[aria-expanded="true"] {
         max-height: 0px;
-        transition:  1s cubic-bezier(0, 1, 0, 1);
+        transition: max-height 1s cubic-bezier(0, 1, 0, 1);
         
+      &:after {
+        content: "";
+        visibility: hidden;
+        position: absolute;
+        bottom: 0px;
+        left: 0px;
+        width: 100%;
+        height: 1px;
+        background-color: rgb(79, 79, 79);
+        will-change: transform;
+        transition: visibility 200ms cubic-bezier(0.5, 0, 0, 0.5) 0ms, background-color 0.2s linear 0s;
+        transform-origin: left center;
       }
+    }
+      
+    position: relative;
+    &:after {
+      content: "";
+      visibility: visible;
+      position: absolute;
+      bottom: 0px;
+      left: 0px;
+      width: 100%;
+      height: 1px;
+      background-color: rgb(79, 79, 79);
+      will-change: transform;
+      ${'' /* transition: visibility 1000ms cubic-bezier(0.5, 0, 0, 0.5) 0ms, background-color 0.2s linear 0s; */}
+      transition: .3s;
+      transform-origin: left center;
+    }
     `;
 
     const LinksList = styled.ul`
@@ -78,6 +120,9 @@ const plusSignSvg = <svg width="17" height="16" fill="none" xmlns="http://www.w3
         font-size: 12px;
         list-style: none;
         padding-left: 0px;
+        li {
+            padding-bottom: 16px;
+        }
       @media screen and (max-width: 768px) {
         font-family: Rubik;
         font-size: 12px;
@@ -88,9 +133,6 @@ const plusSignSvg = <svg width="17" height="16" fill="none" xmlns="http://www.w3
         letter-spacing: normal;
         list-style: none;
         padding-left: 0px;
-        li {
-            padding-bottom: 16px;
-        }
       }
       `
 function Accordion(props){

@@ -69,7 +69,6 @@ function Footer() {
             grid-template-areas: 
             "middle top"
             "bottom top"
-            
             ;
         }
         @media screen and (min-width: 1024px) {
@@ -77,11 +76,6 @@ function Footer() {
             grid-template-areas: 
             "middle bottom top";
         }
-    `
-    
-    const StyledSocialLinks = styled(SocialLinks)`
-        grid-area: top;
-        
     `
     const FooterItem = styled.div`
 
@@ -110,7 +104,7 @@ function Footer() {
         {/* <div className="social-links footer-item-top">
             
         </div> */}
-        <StyledSocialLinks></StyledSocialLinks>
+        <SocialLinks></SocialLinks>
         
         <FooterItemMiddle className="footer-item footer-item-middle">
             {Object.keys(FooterInfo).map((el, idx) => (
@@ -121,7 +115,9 @@ function Footer() {
         </FooterItemMiddle>
         <FooterItemBottom className="footer-item footer-item-bottom">
             {Object.keys(FooterInfo).map((el, idx) => (
-                idx>3 ? <Accordion name={el} links={FooterInfo[el]}/> : false
+                idx>3 ? 
+                <Accordion name={el} links={FooterInfo[el]}/> : 
+                false
             ))}
         </FooterItemBottom>
 
