@@ -21,9 +21,10 @@ const plusSignSvg = <svg width="17" height="16" fill="none" xmlns="http://www.w3
 
     const PlusSign = styled.span`
       position: absolute;
-      right: 6.9px;
+      right: 3px;
       transform: rotate(-135deg) scaleX(90%) scaleY(90%);
       transition: 0.3s;
+      height: 16px;
     `
 
     const AccordionTitleContainer = styled.div`
@@ -57,9 +58,11 @@ const plusSignSvg = <svg width="17" height="16" fill="none" xmlns="http://www.w3
         ${PlusSign}{
           transform: rotate(-90deg);
           transition: .3s;
+          right:
 
 
         }
+        ${'' /* margin-left: 2.5px; */}
         &:after {
           content: "";
           position: absolute;
@@ -122,6 +125,7 @@ const plusSignSvg = <svg width="17" height="16" fill="none" xmlns="http://www.w3
         list-style: none;
         padding-left: 0px;
         margin-top: 0px;
+        margin-bottom: 0px;
         li {
             padding-bottom: 16px;
         }

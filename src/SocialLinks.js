@@ -9,10 +9,11 @@ function SocialLinks(){
         grid-area: top;
 
         @media screen and (min-width: 768px) and (max-width: 1439px){
-            margin-left: 137px;
+            ${'' /* margin-left: 137px; */}
 
         }
         @media screen and (min-width: 1440px) {
+
         }
 
     `
