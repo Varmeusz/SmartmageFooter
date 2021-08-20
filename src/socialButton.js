@@ -35,12 +35,19 @@ const LogoContainer = styled.div`
 const LogoAnchor = styled.a`
     color: #fff;
     text-decoration: none;
+    &:hover {
+        transform: scale3d(2,2,2);
+    }
 `;
 
 const Logo = styled.svg`
     width: 24px;
     height: 24px;
     fill: #fff;
+    transition: .3s;
+    &:hover{
+        transform:scale(1.5);
+    }
     
 `;
 
